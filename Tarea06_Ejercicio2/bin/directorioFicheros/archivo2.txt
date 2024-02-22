@@ -1,0 +1,8 @@
+Hola! soy el archivo 2.
+Cuerpo del archivo 2
+Cuerpo del archivo 2
+Cuerpo del archivo 2
+Cuerpo del archivo 2
+Cuerpo del archivo 2
+Fin del archivo 2.
+

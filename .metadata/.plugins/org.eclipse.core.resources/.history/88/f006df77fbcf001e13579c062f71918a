@@ -1,0 +1,25 @@
+package main;
+
+import java.net.Socket;
+
+
+public class HCliente extends Thread {
+
+
+    Socket socCliente;
+	//Constructor para la conexion de clientes	
+	public HCliente(Socket clienteSocket) {
+		
+	}
+	
+	@Override
+	public void run() {
+		
+        procesaPeticion(socCliente);
+        //cierra la conexión entrante
+        socCliente.close();
+        System.out.println("cliente atendido");
+
+
+	}
+}

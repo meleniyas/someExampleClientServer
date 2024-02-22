@@ -1,0 +1,40 @@
+package main;
+
+public class Persona extends Thread{
+
+	private Sala sala;
+	private String identificacion;
+	
+	public Persona(Sala mesa, String identificación) {
+		this.sala = mesa;
+		this.identificacion = identificacion;
+	}
+	
+	@Override
+	public void run() {
+		while(true) {
+			this.asistir();
+			this.marcharse();
+		}	
+	}
+	
+	public void asistir() {
+		
+		System.out.println("El filosofo " + pNumero + " solicita acceso");
+        try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {e.printStackTrace();}
+		
+	}
+	
+	public void marcharse() {
+		this.mesa.cogerPalillo(this.posFilosofo);
+        try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {e.printStackTrace();}
+		this.mesa.dejarPalillo(this.posFilosofo);
+		}
+	
+	
+	
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ZipFile"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.jdt.internal.ui.fatjarpackager.JarPackageWizard"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jst.ejb.ui"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Israel Martinez\Desktop\PSP_06\Tarea06_Ejercicio1.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\PSP_05\Tarea05_Ejercicio2.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\PSP_04\Tarea04_Ejercicio3.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\PSP_04\Tarea04_Ejercicio2.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\PSP_04\Tarea04_Ejercicio1.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\Intercambio\PSPExamen_Ejercicio01_B_IsraelMartinez.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\Intercambio\PSPExamen_Ejercicio01_A_IsraelMartinez.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\Intercambio\PSPExamen_Ejercicio02_IsraelMartinez.zip"/>
+			<item value="C:\Users\Israel Martinez\Desktop\Tarea02_Ejercicio02_Semaphore.zip"/>
+		</list>
+	</section>
+	<section name="ZipFileImportWizard">
+		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\Israel Martinez\Desktop\PSP_05\Tarea05_Ejercicio1.zip"/>
+		</list>
+	</section>
+</section>

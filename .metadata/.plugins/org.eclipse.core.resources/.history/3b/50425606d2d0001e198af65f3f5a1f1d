@@ -1,0 +1,12 @@
+feb 20, 2024 11:45:02 P. M. main.principal main
+WARNING: El usuario no coincide con el patrón.
+feb 20, 2024 11:45:07 P. M. main.principal main
+WARNING: El usuario no coincide con el patrón.
+feb 20, 2024 11:45:11 P. M. main.principal main
+FINE: Usuario: aaaabbbb Se ha loggeado.
+feb 20, 2024 11:45:13 P. M. main.principal main
+INFO: El fichero introducido fichero no coincide con el patrón: archivo1
+feb 20, 2024 11:45:18 P. M. main.principal main
+FINE: Se ha accedido al fichero: archivo1.txt
+feb 20, 2024 11:45:18 P. M. main.principal main
+FINE: Se ha cerrado la sesión de: aaaabbbb

@@ -1,0 +1,14 @@
+feb 21, 2024 4:58:23 P. M. main.principal main
+WARNING: El usuario no coincide con el patrón.
+feb 21, 2024 4:58:31 P. M. main.principal main
+WARNING: El usuario no existe.
+feb 21, 2024 4:58:34 P. M. main.principal main
+FINE: Usuario: aaaabbbb Se ha loggeado.
+feb 21, 2024 4:58:40 P. M. main.principal main
+INFO: El fichero introducido no existe: asdf.sdf
+feb 21, 2024 4:58:44 P. M. main.principal main
+INFO: El fichero introducido fichero no coincide con el patrón: asdf.asdf
+feb 21, 2024 4:58:52 P. M. main.principal main
+FINE: Se ha accedido al fichero: archivo1.txt
+feb 21, 2024 4:58:52 P. M. main.principal main
+FINE: Se ha cerrado la sesión de: aaaabbbb

@@ -1,0 +1,13 @@
+package main;
+
+import java.util.Date;
+import java.util.Locale;
+
+public class cabeceraDate {
+	
+	public String currentDate() {
+		String currentDate = getDataValue();
+		return currentDate;
+	}
+
+}

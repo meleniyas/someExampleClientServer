@@ -1,0 +1,124 @@
+package main;
+
+import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+
+public class HCliente extends Thread {
+	private Socket clienteSocket;
+	
+	//Constructor para la conexion de clientes	
+	public HCliente(Socket clienteSocket) {
+		this.clienteSocket = clienteSocket;
+	}
+	
+	@Override
+	public void run() {
+		 boolean autorizado = false;
+		 while (!autorizado) {
+		 
+			try (
+					Scanner datosRecibidos = new Scanner(clienteSocket.getInputStream());
+					PrintWriter datosEnviados = new PrintWriter(clienteSocket.getOutputStream(), true)
+		    ){
+				
+			}
+		 }
+		
+	}	
+		
+}
+
+/*
+
+		
+	    	
+			try (
+				Scanner datosRecibidos = new Scanner(clienteSocket.getInputStream());
+				PrintWriter datosEnviados = new PrintWriter(clienteSocket.getOutputStream(), true)
+	    	){
+
+	    		//Solicitamos usuario
+	    		datosEnviados.println("Ingrese su usuario:");
+	    		datosEnviados.close();
+	    		String usuarioRecibido = datosRecibidos.nextLine();
+	    		datosEnviados.println("Ingrese su contraseña:");
+	    		datosEnviados.close();
+	    		String pwRecibida = datosRecibidos.nextLine();
+	        		
+	        		
+        		int  auth = Servidor.checkAuth(usuarioRecibido,pwRecibida);
+        		System.out.println(auth);
+	
+        		if(auth == 0) {
+        			datosEnviados.println("Usuario o contraseña incorrectos");
+        			datosEnviados.close();
+        		}
+        		else if(auth == 1) {
+        			datosEnviados.println("Este usuario ya esta loggeado");
+        			datosEnviados.close();
+        		}
+        		else if(auth == 2) {
+        			datosEnviados.println("----- Bienvenido -----");
+        			datosEnviados.close();
+        			autorizado = true;
+				}
+	    		
+	    		while (true) {
+	    			datosEnviados.println("Seleccione nombre de archivo o escriba salir");
+	    			
+	    			String directorio= "./src/directorioFicheros/";
+	    			try (Stream<Path> miStream = Files.walk(Paths.get(directorio.toString()))) {
+						List<Object> listaPaths = miStream.collect(Collectors.toList());
+						
+						for (Object path : listaPaths) {
+							datosEnviados.println(path.toString());
+						}
+					}
+	    		}
+    		
+    		//String archivoRuta= "./src/directorioFicheros/"+archivoSolicitado;
+
+    		/*
+    		File archivo = new File(archivoRuta);
+    		
+    		//Comprobamos que el archivo exista
+    		if (archivo.exists()) {
+    			datosEnviados.println("El archivo Existe");
+    			
+        		//Si el archivo existe lo mandamos con este bucle
+    		    try (FileInputStream fis = new FileInputStream(archivo)) {
+    		        byte[] buffer = new byte[4096];
+    		        int bytesRead;
+    		        while ((bytesRead = fis.read(buffer)) != -1) {
+    		        	clienteSocket.getOutputStream().write(buffer, 0, bytesRead);
+    		        }
+    		    }
+				
+			} else {
+				//Si el archivo No Existe mandamos una notificacion y salimos
+    			datosEnviados.println("El archivo No Existe");
+
+			}
+    		*/
+    		
+		} catch (Exception e) {e.printStackTrace();
+	    
+		} finally {
+	        try {
+				Thread.sleep(2000);
+	            clienteSocket.close();
+	            System.out.println("El cliente se ha desconectado.");
+	        } catch (IOException | InterruptedException e) {e.printStackTrace();}
+	    }
+*/

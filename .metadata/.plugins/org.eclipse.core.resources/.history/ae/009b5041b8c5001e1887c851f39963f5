@@ -1,0 +1,44 @@
+package main;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Servidor {
+	
+	private static int maxConexiones = 10;
+	private static int conexionesActuales = 0;
+
+	public static void main(String[] args) {
+		
+		int puertoEscucha = 2000;
+		int numSecreto = (int) (Math.random()*100+1);
+		
+        try (ServerSocket serverSocket = new ServerSocket(puertoEscucha)) {
+            System.out.println("Servidor esperando conexiones en el puerto " + puertoEscucha);
+
+            while (true) {
+            	
+            	if ( conexionesActuales < maxConexiones ) {
+            		
+                    Socket clienteSocket = serverSocket.accept();
+                    System.out.println("Nuevo cliente conectado.");
+
+                    HCliente hiloCliente = new HCliente(clienteSocket, numSecreto);
+                    new Thread(hiloCliente).start();
+                    
+                    conexionesActuales++;
+            	}
+
+            }
+        } catch (IOException e) {
+        	System.out.println("aqui");
+            e.printStackTrace();
+        }
+	}
+
+	public static void clienteDesconectado() {
+		Servidor.conexionesActuales--;
+		
+	}
+}

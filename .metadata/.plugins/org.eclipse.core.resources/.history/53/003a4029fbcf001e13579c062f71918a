@@ -1,0 +1,65 @@
+package main;
+
+import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.ByteArrayOutputStream;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+
+public class HCliente extends Thread {
+	private InputStream inputStream;
+	private OutputStream outputStream;
+	
+	private String token = "";
+	private String user;
+	
+    private Map<Integer, String> estados = new HashMap<>();
+    private String estadoActual = "pausdo";
+
+
+	private boolean salir = false;
+    
+	//Constructor para la conexion de clientes	
+	public HCliente(Socket clienteSocket) {
+		
+		
+		try {
+			this.inputStream = clienteSocket.getInputStream();
+			this.outputStream = clienteSocket.getOutputStream();
+		} catch (IOException e) {
+			System.out.println("ERROR: No se ha podido establecer la conexión con el cliente");
+			
+		} 
+		this.estados.put(0,"pausado");
+		this.estados.put(1,"recibiendo");
+		this.estados.put(2,"enviando");
+	}
+	
+	@Override
+	public void run() {
+		
+				
+
+		while( checkSalir() )
+		{	
+			enrutador();
+		}
+
+		System.out.println("El cliente se ha desconectado");
+		
+		
+		
+
+	}

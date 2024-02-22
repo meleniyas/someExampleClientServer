@@ -1,0 +1,92 @@
+package main;
+
+import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.io.BufferedReader;
+
+
+public class HCliente extends Thread {
+	private Socket clienteSocket;
+	private Integer token = null;
+	
+	//Constructor para la conexion de clientes	
+	public HCliente(Socket clienteSocket) {
+		this.clienteSocket = clienteSocket;
+	}
+	
+	@Override
+	public void run() {
+		
+		while( !checkToken() )
+			{
+			
+			};
+
+		
+
+		
+		/*
+		while(!checkToken()) {
+			autenticar();
+		}
+		*/
+		
+
+
+	}
+
+	private String recibirDatos() {
+		BufferedReader datosRecibidos;
+		String datosCliente = null;
+		
+		try {
+			datosRecibidos = new BufferedReader(new InputStreamReader(this.clienteSocket.getInputStream()));
+			datosCliente = datosRecibidos.readLine();
+		} catch (IOException e) {e.printStackTrace();}
+		return datosCliente;
+		
+	}
+
+	private void autenticar() {
+		
+		BufferedReader datosRecibidos;
+		PrintWriter datosEnviados;
+		
+		try {
+			datosRecibidos = new BufferedReader(new InputStreamReader(this.clienteSocket.getInputStream()));
+			datosEnviados = new PrintWriter(this.clienteSocket.getOutputStream(), true);
+			
+			//Solicitamos Credenciales
+			datosEnviados.println("Ingrese su usuario:");
+			String usuarioRecibido = datosRecibidos.readLine();
+			System.out.println(usuarioRecibido);
+			
+			datosEnviados.println("Ingrese su contraseña:");
+			String pwRecibida = datosRecibidos.readLine();
+			System.out.println(pwRecibida);
+		
+		
+		} catch (IOException e) {e.printStackTrace();}
+
+	}
+
+	private boolean checkToken() {
+		String[] datosRecibidos = recibirDatos().split(";");
+		String t = datosRecibidos[0];
+		boolean check = false;
+		if(this.token != null && this.token.equals(t)) check = true;
+		System.out.println(check);
+		return check;
+	}
+}
